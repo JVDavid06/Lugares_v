@@ -2,6 +2,12 @@
     <string name="app_name">Lugares</string>
     <string name="tv_correo">Correo</string>
     <string name="tv_clave">Contraseña</string>
+    <string name="msg_correo">Campo para ingresar su correo</string>
+    <string name="msg_clave">Campo para ingresar su contrasena</string>
+    <string name="msg_brLogin">Boton para hacer login</string>
+    <string name="msg_brRegister">Boton para registrarse en el app</string>
+    <string name="msg_fallo_registro">Fallo el registro del usuario</string>
+    <string name="msg_fallo_login">Fallo el login del usuario</string>
     <string name="title_activity_principal">Principal</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

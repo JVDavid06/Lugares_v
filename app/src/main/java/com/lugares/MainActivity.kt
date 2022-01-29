@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.ktx.app
 
@@ -20,10 +21,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //se establece el enlacce en la vista xml mediante el objeto binding
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(binding.root) //Con esto se presenta en pantalla la aplicacion
         FirebaseApp.initializeApp(this)
-        auth = Firebase.auth
+        auth = Firebase.auth  //se asigna el objeto para la autenticacion
 
         //Se define el metodo para el login
         binding.btLogin.setOnClickListener {
@@ -36,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun haceRegistro() {
+     private fun haceRegistro() {
         val email = binding.etEmail.text.toString()
         val clave = binding.etClave.text.toString()
 
@@ -44,12 +46,12 @@ class MainActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, clave)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    Log.d("Ceando usuario", "Registrado")
+                    Log.d("Creando usuario", "Registrado")
                     val user = auth.currentUser
                     actualiza(user)
                 } else {
-                    Log.d("Ceando usuario", "Error")
-                    Toast.makeText(baseContext, "Error", Toast.LENGTH_LONG).show()
+                    Log.d("Creando usuario", "Error")
+                    Toast.makeText(baseContext,getString(R.string.msg_fallo_registro), Toast.LENGTH_SHORT).show()
                     actualiza(null)
                 }
 
@@ -63,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    //Esto hara que una vez logueado no lo vuelva a pedir a menos que cierre la sesion
+    //Esto hara que una vez logueado no lo vuelva a pedir que se loguee a menos que cierre la sesion
     public override fun onStart() {
         super.onStart()
         val usuario=auth.currentUser
@@ -83,7 +85,7 @@ class MainActivity : AppCompatActivity() {
                     actualiza(user)
                 } else {
                     Log.d("Autenticando", "Error")
-                    Toast.makeText(baseContext, "Error", Toast.LENGTH_LONG).show()
+                    Toast.makeText(baseContext, getString(R.string.msg_fallo_login), Toast.LENGTH_SHORT).show()
                     actualiza(null)
                 }
             }

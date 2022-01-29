@@ -14,12 +14,14 @@
         android:layout_height="wrap_content"
         android:text="@string/tv_correo"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="34sp" />
 
     <EditText
         android:id="@+id/et_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/msg_correo"
         android:ems="10"
         android:inputType="textEmailAddress"
         android:textAlignment="center"
@@ -37,6 +39,7 @@
         android:id="@+id/et_clave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/msg_clave"
         android:ems="10"
         android:inputType="textPassword"
         android:textAlignment="center"
@@ -52,6 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:contentDescription="@string/msg_brRegister"
             app:srcCompat="@drawable/ic_register" />
 
         <ImageButton
@@ -59,6 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:contentDescription="@string/msg_brLogin"
             app:srcCompat="@drawable/ic_login" />
     </LinearLayout>
 </LinearLayout>
