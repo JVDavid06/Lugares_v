@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.lugares.R
+import com.lugares.adapter.LugarAdapter
 import com.lugares.databinding.FragmentLugarBinding
 import com.lugares.viewmodel.LugarViewModel
 
@@ -33,6 +35,17 @@ class LugarFragment : Fragment() {
 
         binding.floatingActionButton.setOnClickListener{
             findNavController().navigate(R.id.action_nav_lugar_to_addLugarFragment)
+        }
+
+        //Activar el recycler view
+        val lugarAdapter = LugarAdapter()
+        val reciclador = binding.reciclador //se recupera el recycler view de la vista fragment lugar
+
+        reciclador.adapter = lugarAdapter //se asigna lugarAdapter como el adapter de reciclador
+        reciclador.layoutManager = LinearLayoutManager(requireContext()) //esta linea la tiene que tener cualquier view
+
+        lugarViewModel.getAllData.observe(viewLifecycleOwner){lugares -> //ejecuta codigo cuando se actualiza algo
+            lugarAdapter.setData(lugares) //cuando algo cambie se lo pase a lugar adapter
         }
 
         return binding.root

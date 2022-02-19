@@ -26,5 +26,12 @@
     <string name="msg_telefono_add">Telefono del lugar</string>
     <string name="msg_web_add">Sitio web del lugar</string>
     <string name="msg_lugar_add">Lugar agregado</string>
+    <string name="msg_lugar_update">Lugar actualizado</string>
+    <string name="msg_lugar_delete">Lugar eliminado</string>
     <string name="bt_add_lugar">Agregar Lugar</string>
+    <string name="bt_update_lugar">Actualizar Lugar</string>
+    <string name="menu_delete">Eliminar lugar</string>
+    <string name="msg_seguroBorrar">"¿Estàs seguro de eliminar  "</string>
+    <string name="no">No</string>
+    <string name="si">Si</string>
 </resources>
