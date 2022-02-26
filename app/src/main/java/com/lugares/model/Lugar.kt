@@ -21,6 +21,8 @@ data class Lugar(
     val web : String?,
     @ColumnInfo(name = "latitud")
     val latitud : Double?,
+    @ColumnInfo(name = "longitud")
+    val longitud : Double?,
     @ColumnInfo(name = "altura")
     val altura : Double?,
     @ColumnInfo(name = "rutaAudio")
